@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-W -Wall -g -Wextra
-EXEC=hanoi
+EXEC=hanoi binaryTree
 LDFLAGS=
 
 all: $(EXEC)
@@ -13,6 +13,15 @@ main_hanoi.o: main_hanoi.c log.h hanoi.h
 
 hanoi.o: hanoi.c log.h
 	$(CC) -o hanoi.o -c hanoi.c $(LDFLAGS) $(CFLAGS)
+
+binaryTree: main_binary.o log.o binaryTree.o
+		$(CC) -o binaryTree main_binary.o log.o binaryTree.o $(LDFLAGS)
+
+main_binary.o: main_binary.c log.h binaryTree.h
+	$(CC) -o main_binary.o -c main_binary.c $(LDFLAGS) $(CFLAGS)
+
+binaryTree.o: binaryTree.c log.h
+	$(CC) -o binaryTree.o -c binaryTree.c $(LDFLAGS) $(CFLAGS)
 
 log.o: log.c
 	$(CC) -o log.o -c log.c $(LDFLAGS) $(CFLAGS)
