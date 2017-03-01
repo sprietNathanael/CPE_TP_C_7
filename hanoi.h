@@ -25,7 +25,7 @@
 typedef struct hanoiTower HanoiTower;
 
 /**
- * @brief      Represents a chained list of hanoiTower
+ * @brief      Represents a tower of hanoi puzzle
  */
 struct hanoiTower
 {
