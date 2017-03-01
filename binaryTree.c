@@ -97,6 +97,7 @@ void removeValue(int value, Node** root)
 				// If there is no left value, replace the current node by its right neighbour
 				if((*root)->left == NULL)
 				{
+					free(*root);
 					*root = (*root)->right;
 				}
 				else
@@ -104,6 +105,7 @@ void removeValue(int value, Node** root)
 					// If there is no right value but a left value
 					if((*root)->right == NULL)
 					{
+						free(*root);
 						*root = (*root)->left;
 					}
 					// If there is a value on both sides
@@ -128,7 +130,25 @@ int supmax(int value, Node** root)
 	else
 	{
 		max = (*root)->value;
+		free(*root);
 		*root = (*root)->left;
 		return max;
 	}
+}
+
+void fillTree(Node** root, const char* filename)
+{
+	int* array;
+	int arrayLength;
+	arrayLength = readFromFile(&array, filename);
+	*root = malloc(sizeof(Node));
+	(*root)->value = array[0];
+	(*root)->left = NULL;
+	(*root)->right = NULL;
+	int i =1;
+	for(i = 1; i < arrayLength; i++)
+	{
+		insertValueInTree(root, array[i]);
+	}
+
 }

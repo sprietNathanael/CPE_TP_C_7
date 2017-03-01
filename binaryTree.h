@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "log.h"
+#include "file.h"
 
 #ifndef BINARY_TREE_H
 #define BINARY_TREE_H
@@ -74,6 +75,12 @@ void browsePreOrder(Node* root);
  */
 void removeValue(int value, Node** root);
 
+/**
+ * @brief      Fills a binary tree from a file
+ *
+ * @param      root      The root
+ * @param[in]  fileName  The file name
+ */
 void fillTree(Node** root, const char* fileName);
 
 /**

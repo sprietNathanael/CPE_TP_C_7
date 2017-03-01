@@ -51,29 +51,36 @@ int main()
 
 	removeValue(1,&tree);
 
-	log_info("PreOrder : [");
+	log_info("Remove 1 : [");
 	browsePreOrder(tree);
 	log_info("]\n");
 
 	removeValue(13,&tree);
 
-	log_info("PreOrder : [");
+	log_info("Remove 13 : [");
 	browsePreOrder(tree);
 	log_info("]\n");
 
 	removeValue(25,&tree);
 
-	log_info("PreOrder : [");
+	log_info("Remove 25 : [");
 	browsePreOrder(tree);
 	log_info("]\n");
 
 	removeValue(15,&tree);
 
-	log_info("PreOrder : [");
+	log_info("Remove 15 : [");
 	browsePreOrder(tree);
 	log_info("]\n");
 
 	freeTree(tree);
 
+	Node* treeTest;
+	fillTree(&treeTest,"treeFile");
+	log_info("PreOrder : [");
+	browsePreOrder(treeTest);
+	log_info("]\n");
+
+	freeTree(treeTest);
 	return 0;
 }
