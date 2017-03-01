@@ -41,6 +41,7 @@ struct hanoiTower
 static HanoiTower source;
 static HanoiTower intermediate;
 static HanoiTower target;
+static int totalDiscNumber;
 
 /*
 ***************************** Functions *************************
@@ -62,5 +63,10 @@ void resolveHanoi(int discsNumber);
  * @param      auxiliary    The auxiliary tower
  */
 void moveDisc(int discsNumber, HanoiTower* from, HanoiTower* to, HanoiTower* auxiliary);
+
+/**
+ * @brief      Prints the whole puzzle
+ */
+void printPuzzle();
 
 #endif

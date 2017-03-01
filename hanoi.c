@@ -20,6 +20,8 @@ void resolveHanoi(int discsNumber)
 		log_info(" %d ",source.array[i]);
 	}
 	log_info("]\n");
+	totalDiscNumber = discsNumber;
+	printPuzzle();
 	// Initializes the towers indexes
 	source.index = i-1;
 	target.index = -1;
@@ -37,6 +39,7 @@ void resolveHanoi(int discsNumber)
 		log_info(" %d ",target.array[i]);
 	}
 	log_info("]\n");
+	printPuzzle();
 
 }
 
@@ -49,10 +52,24 @@ void moveDisc(int discsNumber, HanoiTower* from, HanoiTower* to, HanoiTower* aux
 
 		// Move last disc of source to target
 		to->array[++to->index] = from->array[from->index];
+		from->array[from->index] = 0;
 		log_info("Move disc %d from %d [%d] to %d [%d]\n",from->array[from->index],from->towerNumber, from->index,to->towerNumber, to->index);
+		printPuzzle();
 		from->index--;
 
 		// Move the discs from auxiliary to target
 		moveDisc(discsNumber-1, auxiliary, to, from);
 	}
+}
+
+void printPuzzle()
+{
+	log_info("\n\n");
+	log_info(" |  |  |\n");
+	int i = totalDiscNumber;
+	for(i = totalDiscNumber; i >= 0; i--)
+	{
+		log_info(" %d  %d  %d\n",source.array[i],intermediate.array[i],target.array[i]);
+	}
+	log_info("---------\n\n");
 }
