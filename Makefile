@@ -6,7 +6,7 @@ LDFLAGS=
 all: $(EXEC)
 
 hanoi: main_hanoi.o log.o hanoi.o
-	$(CC) -o hanoi main_hanoi.o log.o $(LDFLAGS)
+	$(CC) -o hanoi main_hanoi.o log.o hanoi.o $(LDFLAGS)
 
 main_hanoi.o: main_hanoi.c log.h hanoi.h
 	$(CC) -o main_hanoi.o -c main_hanoi.c $(LDFLAGS) $(CFLAGS)

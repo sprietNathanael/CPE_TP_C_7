@@ -21,5 +21,6 @@ int main()
 	log_false("This is a false log\n");
 	log_warning("This is a warning log\n");
 	printf("\n\n");
+	resolveHanoi(5);
 	return 0;
 }
