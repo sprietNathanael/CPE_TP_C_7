@@ -47,17 +47,17 @@ void moveDisc(int discsNumber, HanoiTower* from, HanoiTower* to, HanoiTower* aux
 {
 	if(discsNumber > 0)
 	{
-		// Move discs number - 1 from source to auxiliary
+		// Move discs number - 1 from "from" to "auxiliary"
 		moveDisc(discsNumber-1, from, auxiliary, to);
 
-		// Move last disc of source to target
+		// Move last disc of "from" to "to"
 		to->array[++to->index] = from->array[from->index];
-		from->array[from->index] = 0;
 		log_info("Move disc %d from %d [%d] to %d [%d]\n",from->array[from->index],from->towerNumber, from->index,to->towerNumber, to->index);
+		from->array[from->index] = 0;
 		printPuzzle();
 		from->index--;
 
-		// Move the discs from auxiliary to target
+		// Move the discs from "auxiliary" to "to"
 		moveDisc(discsNumber-1, auxiliary, to, from);
 	}
 }
