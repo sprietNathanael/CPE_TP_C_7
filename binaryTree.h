@@ -37,13 +37,60 @@ struct node
 ***************************** Functions *************************
 */
 
+/**
+ * @brief      Recursively insert a value in a binary tree
+ *
+ * @param      root   The tree root
+ * @param[in]  value  The value to insert
+ */
 void insertValueInTree(Node** root, int value);
 
-void browseLRR(Node* root);
+/**
+ * @brief      Recursively browse a binary tree in post order
+ *
+ * @param      root  The tree root
+ */
+void browsePostOrder(Node* root);
 
-void browseRLR(Node* root);
+/**
+ * @brief      Recursively browse a binary tree in symetrical
+ *
+ * @param      root  The tree root
+ */
+void browseSymetrical(Node* root);
 
-void remove(Node** root, int value);
+/**
+ * @brief      Recursively browse a binary tree in pre order
+ *
+ * @param      root  The tree root
+ */
+void browsePreOrder(Node* root);
 
-void fill(Node** root, const char* fileName);
+/**
+ * @brief      Removes a value from the binary tree.
+ *
+ * @param[in]  value  The value
+ * @param      root   The tree root
+ */
+void removeValue(int value, Node** root);
+
+void fillTree(Node** root, const char* fileName);
+
+/**
+ * @brief      Recusrsively free the tree
+ *
+ * @param      root  The tree oot
+ */
+void freeTree(Node* root);
+
+/**
+ * @brief      Recusrsively replace the root value from a sub tree with its left
+ *             branch maximum
+ *
+ * @param[in]  value  The value to remove
+ * @param      root   The sub-tree root
+ *
+ * @return     The maximum value
+ */
+int supmax(int value, Node** root);
 #endif
